@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Food Facilities – Shiway</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img src="assets/logo.png" alt="Shiway Logo" height="40" class="me-2" />
+            <span class="fw-bold">SHIWAY</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="food-stations.html"><i class="fas fa-utensils me-1"></i>Food</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="map.html"><i class="fas fa-map me-1"></i>Map</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="emergency.html"><i class="fas fa-phone-alt me-1"></i>Emergency</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Hero -->
+<div class="page-hero">
+    <div class="container">
+        <img src="assets/logo.png" alt="Shiway Logo" />
+        <h1><i class="fas fa-utensils me-3"></i>Food Facilities</h1>
+        <p>Discover free bhandara and meal locations across the mela grounds</p>
+
+        <!-- Quick Stats -->
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="stat-card glass-effect text-center p-3 rounded">
+                    <div class="stat-number text-white">6</div>
+                    <div class="stat-label text-white-50">Active Stations</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card glass-effect text-center p-3 rounded">
+                    <div class="stat-number text-white">4</div>
+                    <div class="stat-label text-white-50">Open Now</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card glass-effect text-center p-3 rounded">
+                    <div class="stat-number text-white">24/7</div>
+                    <div class="stat-label text-white-50">Some Available</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="container mt-5 mb-5">
+    <!-- Page Header -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h2 class="text-gradient mb-2">Available Food Stations</h2>
+                    <p class="text-muted">Find the nearest bhandara and meal services</p>
+                </div>
+                <div>
+                    <button class="btn btn-primary-gradient" onclick="getCurrentLocation()">
+                        <i class="fas fa-location-arrow me-2"></i>Find Nearest
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search and Filter Section -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">
+                                <i class="fas fa-search me-2"></i>Search Stations
+                            </label>
+                            <input type="text" class="form-control" id="foodSearch"
+                                   placeholder="Search by name or location...">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label fw-semibold">
+                                <i class="fas fa-filter me-2"></i>Availability
+                            </label>
+                            <select class="form-select" id="availabilityFilter">
+                                <option value="all">All Stations</option>
+                                <option value="open">Currently Open</option>
+                                <option value="closed">Currently Closed</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label fw-semibold">
+                                <i class="fas fa-sort me-2"></i>Sort By
+                            </label>
+                            <select class="form-select" id="sortFilter">
+                                <option value="name">Name</option>
+                                <option value="distance">Distance</option>
+                                <option value="availability">Availability</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Food Stations List -->
+    <div class="row">
+        <div class="col-12">
+            <ul class="list-group" id="foodContainer">
+                <li class="list-group-item d-flex justify-content-center align-items-center" style="min-height: 200px;">
+                    <div class="text-center">
+                        <div class="loading-spinner mb-3"></div>
+                        <p class="text-muted">Loading food stations...</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title mb-3">
+                        <i class="fas fa-lightbulb me-2 text-warning"></i>Quick Actions
+                    </h5>
+                    <div class="row g-3">
+                        <div class="col-md-3">
+                            <a href="map.html" class="btn btn-outline-primary w-100">
+                                <i class="fas fa-map-marked-alt me-2"></i>View on Map
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-outline-success w-100" onclick="shareAllLocations()">
+                                <i class="fas fa-share me-2"></i>Share Locations
+                            </button>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="traffic.html" class="btn btn-outline-warning w-100">
+                                <i class="fas fa-traffic-light me-2"></i>Check Traffic
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="emergency.html" class="btn btn-outline-danger w-100">
+                                <i class="fas fa-phone-alt me-2"></i>Emergency Help
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="footer-brand">
+                    <img src="assets/logo.png" alt="Shiway Logo" height="40" />
+                    <h5>SHIWAY</h5>
+                    <p>Your trusted companion for Simhastha Kumbh Mela</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="footer-links">
+                    <h6>Quick Links</h6>
+                    <ul>
+                        <li><a href="shahi-snan.html">Shahi Snan</a></li>
+                        <li><a href="food-stations.html">Food Facilities</a></li>
+                        <li><a href="map.html">Interactive Map</a></li>
+                        <li><a href="emergency.html">Emergency Help</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="footer-contact">
+                    <h6>Emergency Contact</h6>
+                    <p><i class="fas fa-phone"></i> +91-9999999999</p>
+                    <p><i class="fas fa-envelope"></i> help@shiway.com</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2028 Shiway Project – Smart Simhastha Guide. Made with ❤️ for pilgrims.</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="data.js"></script>
+<script src="script.js"></script>
+
+<script>
+// Additional functionality for food stations page
+function shareAllLocations() {
+    const locations = data.foodStations.map(station =>
+        `${station.name}: https://www.google.com/maps?q=${station.lat},${station.lng}`
+    ).join('\n');
+
+    if (navigator.share) {
+        navigator.share({
+            title: 'Food Stations - Shiway',
+            text: 'Check out these food stations:\n' + locations
+        });
+    } else {
+        navigator.clipboard.writeText(locations).then(() => {
+            showNotification('All food station locations copied to clipboard!');
+        });
+    }
+}
+
+// Sort functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const sortFilter = document.getElementById('sortFilter');
+    if (sortFilter) {
+        sortFilter.addEventListener('change', sortFoodStations);
+    }
+});
+
+function sortFoodStations() {
+    const sortBy = document.getElementById('sortFilter')?.value || 'name';
+    const container = document.getElementById('foodContainer');
+    const items = Array.from(container.children);
+
+    items.sort((a, b) => {
+        switch (sortBy) {
+            case 'name':
+                return a.dataset.name?.localeCompare(b.dataset.name) || 0;
+            case 'distance':
+                // This would require actual distance calculation
+                return 0;
+            case 'availability':
+                const aOpen = a.dataset.status === 'open';
+                const bOpen = b.dataset.status === 'open';
+                return bOpen - aOpen;
+            default:
+                return 0;
+        }
+    });
+
+    items.forEach(item => container.appendChild(item));
+}
+</script>
+</body>
+</html>

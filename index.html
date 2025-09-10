@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Shiway – Smart Simhastha Guide</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img src="assets/logo.png" alt="Shiway Logo" height="40" class="me-2" />
+            <span class="fw-bold">SHIWAY</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html"><i class="fas fa-home me-1"></i>Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="map.html"><i class="fas fa-map me-1"></i>Map</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="emergency.html"><i class="fas fa-phone-alt me-1"></i>Emergency</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero-section">
+    <div class="hero-background"></div>
+    <div class="hero-content">
+        <div class="container text-center">
+            <div class="hero-logo-container">
+                <img src="assets/logo.png" alt="Shiway Logo" class="hero-logo" />
+                <div class="logo-glow"></div>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-main">SHIWAY</span>
+                <span class="title-subtitle">स्मार्ट सिंहस्थ गाइड</span>
+            </h1>
+            <p class="hero-description">
+                Your intelligent companion for Simhastha Kumbh Mela
+                <br><span class="hero-tagline">🛕 Navigate • 🍛 Discover • 📍 Connect</span>
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="visitorCount">50K+</div>
+                    <div class="stat-label">Pilgrims Served</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Services</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-indicator">
+        <i class="fas fa-chevron-down"></i>
+    </div>
+</div>
+
+<!-- Quick Actions Section -->
+<div class="quick-actions-section">
+    <div class="container">
+        <div class="section-header text-center mb-5">
+            <h2 class="section-title">Explore Services</h2>
+            <p class="section-subtitle">Everything you need for a blessed pilgrimage</p>
+        </div>
+
+        <div class="services-grid">
+            <!-- Shahi Snan Card -->
+            <div class="service-card" data-service="shahi-snan">
+                <div class="card-background"></div>
+                <div class="card-content">
+                    <div class="card-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="card-title">Shahi Snan</h3>
+                    <p class="card-description">Sacred bathing schedule and timings</p>
+                    <div class="card-stats">
+                        <span class="stat-badge">4 Events</span>
+                        <span class="status-badge active">Live</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="shahi-snan.html" class="btn-explore">
+                            <span>Explore</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Food Facilities Card -->
+            <div class="service-card" data-service="food">
+                <div class="card-background"></div>
+                <div class="card-content">
+                    <div class="card-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="card-title">Food Facilities</h3>
+                    <p class="card-description">Free bhandara and meal locations</p>
+                    <div class="card-stats">
+                        <span class="stat-badge">6 Locations</span>
+                        <span class="status-badge available">Available</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="food-stations.html" class="btn-explore">
+                            <span>Explore</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Map Card -->
+            <div class="service-card" data-service="map">
+                <div class="card-background"></div>
+                <div class="card-content">
+                    <div class="card-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 class="card-title">Interactive Map</h3>
+                    <p class="card-description">Navigate with real-time locations</p>
+                    <div class="card-stats">
+                        <span class="stat-badge">Live GPS</span>
+                        <span class="status-badge active">Updated</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="map.html" class="btn-explore">
+                            <span>Explore</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Traffic Alerts Card -->
+            <div class="service-card" data-service="traffic">
+                <div class="card-background"></div>
+                <div class="card-content">
+                    <div class="card-icon">
+                        <i class="fas fa-traffic-light"></i>
+                    </div>
+                    <h3 class="card-title">Traffic Alerts</h3>
+                    <p class="card-description">Real-time traffic and route updates</p>
+                    <div class="card-stats">
+                        <span class="stat-badge">5 Updates</span>
+                        <span class="status-badge warning">Moderate</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="traffic.html" class="btn-explore">
+                            <span>Explore</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Emergency Help Card -->
+            <div class="service-card" data-service="emergency">
+                <div class="card-background"></div>
+                <div class="card-content">
+                    <div class="card-icon">
+                        <i class="fas fa-ambulance"></i>
+                    </div>
+                    <h3 class="card-title">Emergency Help</h3>
+                    <p class="card-description">24/7 emergency services</p>
+                    <div class="card-stats">
+                        <span class="stat-badge">4 Services</span>
+                        <span class="status-badge emergency">24/7</span>
+                    </div>
+                    <div class="card-footer">
+                        <a href="emergency.html" class="btn-explore">
+                            <span>Explore</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weather Card -->
+            <div class="service-card" data-service="weather">
+                <div class="card-background"></div>
+                <div class="card-content">
+                    <div class="card-icon">
+                        <i class="fas fa-cloud-sun"></i>
+                    </div>
+                    <h3 class="card-title">Weather Info</h3>
+                    <p class="card-description">Current weather and forecasts</p>
+                    <div class="card-stats">
+                        <span class="stat-badge">28°C</span>
+                        <span class="status-badge good">Clear</span>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn-explore" onclick="showWeather()">
+                            <span>Check</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Features Section -->
+<div class="features-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="features-content">
+                    <h2 class="features-title">Why Choose Shiway?</h2>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Mobile Optimized</h4>
+                                <p>Works perfectly on all devices</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Real-time Updates</h4>
+                                <p>Live information when you need it</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Multi-language</h4>
+                                <p>Available in Hindi and English</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="features-image">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <img src="assets/logo.png" alt="App Preview" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="footer-brand">
+                    <img src="assets/logo.png" alt="Shiway Logo" height="40" />
+                    <h5>SHIWAY</h5>
+                    <p>Your trusted companion for Simhastha Kumbh Mela</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="footer-links">
+                    <h6>Quick Links</h6>
+                    <ul>
+                        <li><a href="shahi-snan.html">Shahi Snan</a></li>
+                        <li><a href="food-stations.html">Food Facilities</a></li>
+                        <li><a href="map.html">Interactive Map</a></li>
+                        <li><a href="emergency.html">Emergency Help</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="footer-contact">
+                    <h6>Emergency Contact</h6>
+                    <p><i class="fas fa-phone"></i> +91-9999999999</p>
+                    <p><i class="fas fa-envelope"></i> help@shiway.com</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2028 Shiway Project – Smart Simhastha Guide. Made with ❤️ for pilgrims.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Weather Modal -->
+<div class="modal fade" id="weatherModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Weather Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="weather-info">
+                    <div class="weather-current">
+                        <div class="weather-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="weather-temp">28°C</div>
+                        <div class="weather-desc">Clear Sky</div>
+                    </div>
+                    <div class="weather-details">
+                        <div class="weather-detail">
+                            <span>Humidity</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="weather-detail">
+                            <span>Wind Speed</span>
+                            <span>12 km/h</span>
+                        </div>
+                        <div class="weather-detail">
+                            <span>Visibility</span>
+                            <span>10 km</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
