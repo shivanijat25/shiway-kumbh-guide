@@ -538,7 +538,7 @@ function setupEventListeners() {
         });
     });
 
-    // Navbar scroll effect
+    // Enhanced navbar scroll effect
     window.addEventListener('scroll', () => {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 100) {
@@ -550,6 +550,9 @@ function setupEventListeners() {
         }
     });
 
+    // Simple navbar toggler interactions
+    setupSimpleNavbarToggler();
+
     // Service card click handlers
     document.querySelectorAll('.service-card').forEach(card => {
         card.addEventListener('click', (e) => {
@@ -560,6 +563,40 @@ function setupEventListeners() {
                 }
             }
         });
+    });
+}
+
+// --- Simple Navbar Toggler Functionality ---
+function setupSimpleNavbarToggler() {
+    const toggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+
+    if (!toggler || !navbarCollapse) return;
+
+    // Auto-close menu when clicking nav links
+    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            if (navbarCollapse.classList.contains('show')) {
+                toggler.click();
+            }
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!toggler.contains(e.target) &&
+            !navbarCollapse.contains(e.target) &&
+            navbarCollapse.classList.contains('show')) {
+            toggler.click();
+        }
+    });
+
+    // Keyboard accessibility
+    toggler.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggler.click();
+        }
     });
 }
 
